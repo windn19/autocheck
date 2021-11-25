@@ -38,9 +38,6 @@ def check_patt(pat, t):
     return ret1
 
 
-def Start(usr):
-
-
 def check_task1(text):
     a1 = np.random.randint(1, 11, size=10)
     a2 = np.random.randint(1, 11, size=4)
