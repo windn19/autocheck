@@ -347,7 +347,7 @@ def check_homework(self):
     sys.path.append('/content/tmp')
     mkdir('/content/tmp')
     flag = False
-    t = save_cells(usr.content)
+    t = save_cells(user.content)
     res = [check_task1(t), check_task2(t), check_task3(t), check_task4(t), check_task5(t)]
     clear_output()
     for num, i in enumerate(res):
