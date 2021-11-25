@@ -7,7 +7,7 @@ from shutil import rmtree
 from os import mkdir
 from IPython.display import clear_output
 from tqdm import tqdm
-from re import search
+from re
 import importlib
 
 
