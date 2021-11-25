@@ -13,10 +13,10 @@ import importlib
 
 def save_cells(content):
     text = {}
-    ad = len(content[:-1])
+    ad = len(content['In'][:-1])
     i = False
     s = 'import matplotlib.pyplot as plt\nimport numpy as np\n\n'
-    for num, item in enumerate(content[:-1]):
+    for num, item in enumerate(content['In'][:-1]):
         if item == '':
             continue
         text[f'tmp{num}.py'] = item
