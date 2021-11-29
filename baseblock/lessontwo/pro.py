@@ -90,7 +90,7 @@ def Start(usr):
   print('\n') 
   print('ДЗ выполнено' if all(res) else 'Исправьте ошибки и попробуйте снова')
   rmtree('/content/tmp')
-  In.clear()
+  user.content['In'].clear()
 
 def task1(tmp, text=None):
    assert tmp.rnd_array.shape == (3, 4) or tmp.rnd_array.dtype == np.int or (tmp.rnd_array.max() >=38 and tmp.rnd_array.min() <= 15), 'Неправильный размер массива или содержание массива'
