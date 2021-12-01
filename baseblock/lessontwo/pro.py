@@ -137,8 +137,6 @@ def check_task(text, context):
     try:
       print(f'\nЯчейка \n\n{text[name]}')
       tmp_imp = importlib.import_module(name[:-3])
-      words = Keywords(tmp_imp.__dir__())
-      assert words.check(), 'Переопределение стандартной функции'
       if not ret[name]:
         try:
           context['func'](tmp_imp, text[name])
