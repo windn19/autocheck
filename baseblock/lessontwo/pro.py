@@ -188,58 +188,57 @@ def check_homework(self):
     sys.path.append('/content/tmp')
     mkdir('/content/tmp')
     tasks = [{
-	      'alias':{r'rnd_array\s*=': 'my_array',
-		      r'str_array\s*=': 'str_array'},
-	      'func': task1,
-	      'result': False,
-	      'error': set()
-	  }, {
-	      'alias':{r'def\s+first_monday\s*\(': 'first_monday'},
-	      'func': task2,
-	      'result': False,
-	      'error': set()
-	  }, {
-	      'alias':{r'def\s+sort_bubble\s*\(': 'sort_bubble'},
-	      'func': task3,
-	      'result': False,
-	      'error': set()
-	  }, {
-	      'alias': {r'x\s*=': 'x',
-		       r'y\s*=': 'y',
-		       r'\.scatter\s*\(\s*x\s*,\s*y': 'plt.scatter'},
-	      'func': task4,
-	      'result': False,
-	      'error': set()
-	  }, {
-	      'alias': {r'val_x\s*=': 'val_x',
-		        r'val_y\s*=': 'val_y',
-		        r'\.plot\s*\(\s*val_x\s*,\s*val_y': 'plt.plot',
-		        r'\.scatter\s*\(\s*val_x\s*,\s*val_y': 'plt.scatter',
-		        r'figsize\s*=\s*\(\s*6\s*,\s*3\s*\)': '\nНеправильный размер рисунка',
-		        r'\.grid\(': '\nОтсутствие сетки на рисунке - не использован метод grid',
-		        r"\.xlabel\(\s*\'": "\nНет подписи оси - не использован метод xlabel",
-		        r"\.ylabel\(\s*\'": "\nНет подписи оси - не использован метод ylabel",
-		        r"\.title\(\s*['\"]Самолет": '\nГрафик не подписан - не использован метод title'},
-	      'func': task5,
-	      'result': False,
-	      'error': set()
-	  }
-	  ]
+              'alias':{r'rnd_array\s*=': 'my_array',
+                      r'str_array\s*=': 'str_array'},
+              'func': task1,
+              'result': False,
+              'error': set()
+          }, {
+              'alias':{r'def\s+first_monday\s*\(': 'first_monday'},
+              'func': task2,
+              'result': False,
+              'error': set()
+          }, {
+              'alias':{r'def\s+sort_bubble\s*\(': 'sort_bubble'},
+              'func': task3,
+              'result': False,
+              'error': set()
+          }, {
+              'alias': {r'x\s*=': 'x',
+                r'y\s*=': 'y',
+                r'\.scatter\s*\(\s*x\s*,\s*y': 'plt.scatter'},
+              'func': task4,
+              'result': False,
+              'error': set()
+          }, {
+              'alias': {r'val_x\s*=': 'val_x',
+                  r'val_y\s*=': 'val_y',
+                  r'\.plot\s*\(\s*val_x\s*,\s*val_y': 'plt.plot',
+                  r'\.scatter\s*\(\s*val_x\s*,\s*val_y': 'plt.scatter',
+                  r'figsize\s*=\s*\(\s*6\s*,\s*3\s*\)': '\nНеправильный размер рисунка',
+                  r'\.grid\(': '\nОтсутствие сетки на рисунке - не использован метод grid',
+                  r"\.xlabel\(\s*\'": "\nНет подписи оси - не использован метод xlabel",
+                  r"\.ylabel\(\s*\'": "\nНет подписи оси - не использован метод ylabel",
+                  r"\.title\(\s*['\"]Самолет": '\nГрафик не подписан - не использован метод title'},
+              'func': task5,
+              'result': False,
+              'error': set()
+          }]
 	  # flag = False
-	  t = save_cells(usr.content)
-	  res = [check_task(t, op) for op in tasks]#, check_task2(t), check_task3(t), check_task4(t), check_task5(t)]
-	  clear_output()
-	  num = 0 
-	  for i in tqdm(res, desc='Задание ', bar_format='{l_bar}{bar}  {n_fmt}/{total_fmt}', colour='red' if not all(res) else 'green'):
+    t = save_cells(usr.content)
+    res = [check_task(t, op) for op in tasks]#, check_task2(t), check_task3(t), check_task4(t), check_task5(t)]
+    clear_output()
+    num = 0
+    for i in tqdm(res, desc='Задание ', bar_format='{l_bar}{bar}  {n_fmt}/{total_fmt}', colour='red' if not all(res) else 'green'):
 	    # print(tasks)
 	    num += 1
 	    print('\n\n', f'Задание {num}', 'выполнено' if i else 'сделано неправильно')
 	    if not i:
 	      print(', '.join(tasks[num-1]['error']))
-	  print('\n') 
-	  print('ДЗ выполнено' if all(res) else 'Исправьте ошибки и попробуйте снова')
-	  rmtree('/content/tmp')
-    	  user.content['In'].clear()
+    print('\n')
+    print('ДЗ выполнено' if all(res) else 'Исправьте ошибки и попробуйте снова')
+    rmtree('/content/tmp')
+    user.content['In'].clear()
 
 
 def Start(_user):
