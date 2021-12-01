@@ -160,7 +160,7 @@ def check_task(text, context):
       else:
           error.add('\n\nНе использована необходимая функция '+f'{", ".join([context["alias"][key] for key in ret[name]])}')
     except IndentationError:
-      perror.add(f'\n\nНеправильный отступ')
+      error.add(f'\n\nНеправильный отступ')
       jump = False
     except NameError as n1:
       jump = False
@@ -225,7 +225,7 @@ def check_homework(self):
               'error': set()
           }]
 	  # flag = False
-    t = save_cells(user.content)
+    t = save_cells(user.content['In'])
     res = [check_task(t, op) for op in tasks]#, check_task2(t), check_task3(t), check_task4(t), check_task5(t)]
     clear_output()
     num = 0
