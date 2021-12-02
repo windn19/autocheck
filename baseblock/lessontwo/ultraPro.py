@@ -127,12 +127,12 @@ class Task5(Task):
     assert len(tmp.x) == len(tmp.y) == len(tmp.colors) == len(tmp.areas), 'Несоответвествие размеров параметров'
     assert search(r'\.scatter\s*\(\s*x\s*,\s*y\s*,\s*s\s*=\s*areas\s*,\s*c\s*=\s*colors', text), 'Использование неправильного метода или параметров'
 
-def save_cells():#(cnt):
+def save_cells(cnt):
   text = {}
-  ad = len(In[:-1])#(cnt[:-1])
+  ad = len(cnt[:-1])
   i = False
   s = 'import matplotlib.pyplot as plt\nimport numpy as np\n\n'
-  for num, item in enumerate(In[:-1]):#(cnt[:-1]):
+  for num, item in enumerate(cnt[:-1]):
     if item == '':
       continue
     text[f'tmp{num}.py'] = item
