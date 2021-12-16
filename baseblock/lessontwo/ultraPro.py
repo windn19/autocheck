@@ -125,7 +125,7 @@ class Task4(Task):
 class Task5(Task):
   def run(self, tmp, text):
     assert len(tmp.x) == len(tmp.y) == len(tmp.colors) == len(tmp.areas), 'Несоответвествие размеров параметров'
-    assert search(r'\.scatter\s*\(\s*x\s*,\s*y\s*,\s*s\s*=\s*areas\s*,\s*c\s*=\s*colors', text), 'Использование неправильного метода или параметров'
+    assert search(r'\.scatter\(\s*x\s*,\s*y\s*,.*\s*s\s*=\s*areas\s*,?|\s*c\s*=\s*colors', text), 'Использование неправильного метода или параметров'
 
 def save_cells(cnt):
   text = {}
